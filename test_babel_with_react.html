@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste Babel</title>
+  <link rel="stylesheet" href="normalize.css">
+</head>
+<body>
+<div id="output"></div>
+<!-- Load Babel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <div>
+        <div>Header</div>
+          {this.props.children}
+        <div>Footer</div>
+      </div>
+    )
+  }
+}
+
+function ReactMessage() {
+  return (
+    <h1>Aqui é ReactJs p0rra!</h1>
+  )
+}
+
+ReactDOM.render(
+  <Main>
+    <ReactMessage />
+  </Main>,
+  document.getElementById('output')
+);
+</script>
+</body>
+</html>
