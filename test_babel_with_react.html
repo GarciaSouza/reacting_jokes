@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Teste Babel</title>
+  <title>Teste Babel+ReactJs</title>
   <link rel="stylesheet" href="normalize.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
 <div id="output"></div>
@@ -12,6 +13,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
 <script src="https://unpkg.com/react@15/dist/react.js"></script>
 <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- Your custom script here -->
 <script type="text/babel">
 class Main extends React.Component {
@@ -22,10 +25,15 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>Header</div>
-          {this.props.children}
-        <div>Footer</div>
+      <div className="container-fluid">
+        <div className="row-fluid">
+          <div className="span2">
+            Sidebar content
+          </div>
+          <div className="span10">
+            {this.props.children}
+          </div>
+        </div>
       </div>
     )
   }
@@ -33,7 +41,7 @@ class Main extends React.Component {
 
 function ReactMessage() {
   return (
-    <h1>Aqui é ReactJs p0rra!</h1>
+    <h1>ReactJs!</h1>
   )
 }
 

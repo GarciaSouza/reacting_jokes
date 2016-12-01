@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Teste Babel+ReactJs+Bootrap</title>
+  <link rel="stylesheet" href="normalize.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+<div id="output"></div>
+<!-- Load Babel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.1/babel.min.js"></script>
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Your custom script here -->
+<script type="text/babel">
+class Main extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  render() {
+    return (
+      <div>
+        <div className="navbar navbar-inverse navbar-fixed-top">
+          <div className="navbar-inner">
+            <div className="container">
+              <button type="button" className="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+              <a className="brand" href="#">Project name</a>
+              <div className="nav-collapse collapse">
+                <ul className="nav">
+                  <li className="active"><a href="#">Home</a></li>
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#contact">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          {this.props.children}
+        </div>
+      </div>
+    )
+  }
+}
+
+function ReactMessage() {
+  return (
+    <div>
+      <h1>ReactJs</h1>
+      <p>Olha que lindo! Babel+ReactJs+Bootstrap</p>
+    </div>
+  )
+}
+
+ReactDOM.render(
+  <Main>
+    <ReactMessage />
+  </Main>,
+  document.getElementById('output')
+);
+</script>
+</body>
+</html>
